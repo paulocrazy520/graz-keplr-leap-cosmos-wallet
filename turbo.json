@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": ["pnpm-lock.yaml"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "build/**", "dist/**"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": ["^build", "^lint"],
+      "outputs": []
+    },
+    "start": {
+      "cache": false,
+      "dependsOn": ["^build", "build"]
+    }
+  }
+}

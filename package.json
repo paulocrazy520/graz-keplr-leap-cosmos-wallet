@@ -1,0 +1,43 @@
+{
+  "name": "@strangelove-ventures/graz",
+  "version": "0.0.0",
+  "workspaces": [
+    "docs",
+    "example",
+    "packages/*",
+    "templates/*"
+  ],
+  "scripts": {
+    "build": "turbo run build --filter=!@project/docs --filter=!graz-adapter-*",
+    "clean": "turbo run clean",
+    "dev": "turbo run dev --filter=!@project/docs --filter=!graz-adapter-*",
+    "docs": "pnpm --dir docs",
+    "example": "pnpm --dir example",
+    "graz": "pnpm --dir packages/graz",
+    "create-graz-app": "pnpm --dir packages/create-graz-app",
+    "lint": "turbo run lint",
+    "prepare": "husky install",
+    "release": "turbo run build --filter=graz && pnpm publish --filter graz",
+    "templates": "pnpm --dir templates/default",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "@strangelovelabs/style-guide": "0.0.2",
+    "eslint": "^8",
+    "husky": "^8",
+    "lint-staged": "^13",
+    "p-map": "^5",
+    "prettier": "^2",
+    "tsup": "^6",
+    "turbo": "^1",
+    "typescript": "^4"
+  },
+  "lint-staged": {
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": "@strangelovelabs/style-guide/prettier",
+  "private": true,
+  "license": "MIT"
+}
