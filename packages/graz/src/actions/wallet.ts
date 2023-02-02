@@ -57,8 +57,8 @@ export const getKeplr = (): Keplr => {
  * @see https://docs.keplr.app
  */
 export const getLeap = (): Keplr => {
-  console.log("*******window", window);
-  console.log("*******window-detail", window.leap, window.keplr);
+  console.log("wallet.ts*******window", window);
+  console.log("wallet.ts*******window-detail", window.leap, window.keplr);
   if (typeof window.leap !== "undefined") return window.leap;
   useGrazStore.getState()._notFoundFn();
   throw new Error("window.leap is not defined");
